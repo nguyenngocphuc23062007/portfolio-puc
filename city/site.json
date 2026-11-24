@@ -1,0 +1,360 @@
+{
+  "world": {
+    "seed": "puc-portfolio",
+    "type": "coast"
+  },
+  "ui": {
+    "shortcuts": true,
+    "tour": true,
+    "views": true,
+    "clock": true,
+    "compass": true,
+    "daylight": "auto",
+    "intro": true,
+    "motion": true,
+    "blur": true,
+    "finish": "paper",
+    "infoOpen": true
+  },
+  "site": {
+    "brand": "puc",
+    "domains": [],
+    "home": "/",
+    "lang": "vi",
+    "storageKey": "puc-map",
+    "copyright": {
+      "owner": "Puc"
+    },
+    "description": "Bản đồ giấy gấp các project của Puc: mỗi thị trấn là một nhóm việc, mỗi toà nhà là một project."
+  },
+  "text": {
+    "vi": {
+      "cities": "Thị trấn",
+      "worldName": "Bản đồ",
+      "homeTip": "Về toàn bản đồ, góc nhìn mặc định",
+      "townCount": "{n} thị trấn",
+      "map": "Bản đồ",
+      "tour": "Dạo quanh",
+      "spin": "Xoay",
+      "top": "Nhìn từ trên",
+      "hide": "Ẩn",
+      "show": "Hiện",
+      "info": "Về bản đồ này",
+      "where": "Vị trí",
+      "view": "Góc nhìn",
+      "hintW": "Kéo để xoay bản đồ, giữ Shift hoặc phím cách rồi kéo để dời, cuộn để phóng to.",
+      "hintC": "Bấm một toà nhà để xem project, bấm Esc để quay lại.",
+      "title": "Bản đồ project",
+      "sub": "{n} thị trấn trên một vùng đất",
+      "intro": "Mỗi thị trấn là một nhóm việc, mỗi toà nhà trong đó là một project mình đang làm. Bấm tên thị trấn để bay tới, hoặc bấm Dạo quanh.",
+      "plots": "{n} project",
+      "plot": "Project",
+      "open": "Xem project",
+      "about": "Về mình",
+      "fold": "Đang gấp bản đồ",
+      "prep": "Đang chuẩn bị giấy…",
+      "titleSuffix": "bản đồ",
+      "steps": [
+        "Trải đất",
+        "Gấp núi",
+        "Làm đường và cầu",
+        "Cày ruộng",
+        "Dựng thị trấn",
+        "Trồng rừng",
+        "Thả người đi đường và thuyền"
+      ],
+      "phases": [
+        "Khuya",
+        "Bình minh",
+        "Sáng",
+        "Gần trưa",
+        "Trưa",
+        "Chiều",
+        "Hoàng hôn",
+        "Tối"
+      ],
+      "langName": "Tiếng Việt",
+      "langShort": "VI",
+      "keysT": "Phím tắt",
+      "keysClose": "Bấm ? hoặc Esc để đóng",
+      "keysHint": "Bấm ? để xem phím tắt.",
+      "nowebgl": "Trình duyệt này không tạo được WebGL nên không hiện được bản đồ 3D. Danh sách ở góc vẫn dùng được."
+    }
+  },
+  "places": [
+    {
+      "at": "north",
+      "name": "Dãy Cáo Ngủ"
+    },
+    {
+      "at": "riverA",
+      "name": "Sông Pixel"
+    },
+    {
+      "at": "riverB",
+      "name": "Suối Khung Hình"
+    },
+    {
+      "at": "forest",
+      "name": "Rừng Nỉ"
+    },
+    {
+      "at": "fields",
+      "name": "Ruộng Dữ Liệu"
+    },
+    {
+      "at": "sea",
+      "name": "Biển Mô Hình"
+    },
+    {
+      "at": "bay",
+      "name": "Vịnh Nộp Bài"
+    },
+    {
+      "at": "west",
+      "name": "Núi Tây"
+    },
+    {
+      "at": "lake",
+      "name": "Hồ Trọng Số"
+    }
+  ],
+  "cities": [
+    {
+      "id": "cao-do",
+      "slot": "center",
+      "key": "c",
+      "name": "Cáo Đỏ",
+      "role": "Trang và thiết kế",
+      "blurb": "Nơi dựng chính trang portfolio này, con cáo pixel và màn mở đầu.",
+      "style": {
+        "walls": [
+          "paper",
+          "wallRose",
+          "kraft"
+        ],
+        "roofs": [
+          "terra",
+          "roofSlate",
+          "mustard"
+        ],
+        "annex": [
+          "lantern",
+          "tree",
+          "bench"
+        ],
+        "timber": true
+      },
+      "features": {
+        "walls": true,
+        "lamps": true,
+        "centerpiece": "statue",
+        "suburbs": 12
+      },
+      "items": [
+        {
+          "name": "Portfolio giấy",
+          "url": "/du-an/portfolio",
+          "kind": "hobbit",
+          "desc": "Chính trang này: bản đồ giấy gấp và rừng nỉ."
+        },
+        {
+          "name": "Cáo pixel",
+          "url": "/du-an/cao-pixel",
+          "kind": "face",
+          "desc": "Con cáo pixel đi theo con trỏ trên trang."
+        },
+        {
+          "name": "Logo mở đầu",
+          "url": "/du-an/logo-mo-dau",
+          "kind": "theater",
+          "desc": "Chữ portfolio biến thành puc, cáo chui qua chữ o."
+        },
+        {
+          "name": "Rừng nỉ 3D",
+          "url": "/du-an/rung-ni",
+          "kind": "kiln",
+          "desc": "Cảnh rừng nỉ dựng bằng Blender cho màn đầu."
+        }
+      ]
+    },
+    {
+      "id": "ben-phim",
+      "slot": "coast",
+      "key": "b",
+      "name": "Bến Phim",
+      "role": "Video",
+      "blurb": "Bến làm video giải thích tiếng Việt.",
+      "style": {
+        "walls": [
+          "wallSky",
+          "paper"
+        ],
+        "roofs": [
+          "roofSlate",
+          "slate"
+        ],
+        "annex": [
+          "crates",
+          "barrels",
+          "lantern"
+        ]
+      },
+      "features": {
+        "lamps": true,
+        "centerpiece": "none",
+        "suburbs": 9
+      },
+      "items": [
+        {
+          "name": "Manim Studio",
+          "url": "/du-an/manim-studio",
+          "kind": "camera",
+          "desc": "Kịch bản YAML thành giọng đọc, animation Manim và video MP4."
+        }
+      ]
+    },
+    {
+      "id": "xuong-du-lieu",
+      "slot": "south",
+      "key": "x",
+      "name": "Xưởng Dữ Liệu",
+      "role": "AI và dữ liệu",
+      "blurb": "Xưởng làm các bài thi và bài tập AI.",
+      "style": {
+        "walls": [
+          "kraft",
+          "stone",
+          "paper"
+        ],
+        "roofs": [
+          "olive",
+          "kraftDeep"
+        ],
+        "annex": [
+          "anvil",
+          "cart",
+          "crates"
+        ],
+        "timber": false
+      },
+      "features": {
+        "hedge": true,
+        "lamps": true,
+        "centerpiece": "pond",
+        "suburbs": 10
+      },
+      "items": [
+        {
+          "name": "DataMate (ZAIC 2026)",
+          "url": "/du-an/datamate",
+          "kind": "watermill",
+          "desc": "Nhóm Foxel, Zalo AI Challenge 2026: LLM sinh code pandas để trả lời câu hỏi dữ liệu."
+        },
+        {
+          "name": "Bot cờ vua ChessLab",
+          "url": "/du-an/chesslab",
+          "kind": "quad",
+          "desc": "Bot chơi cờ vua bằng tìm kiếm minimax, bài tập lớn môn tìm kiếm."
+        },
+        {
+          "name": "Nhận diện khuôn mặt",
+          "url": "/du-an/face-recognition",
+          "kind": "radio",
+          "desc": "Bài nghiên cứu nhận diện khuôn mặt."
+        },
+        {
+          "name": "Theo dõi xe",
+          "url": "/du-an/vehicle-tracking",
+          "kind": "twin",
+          "desc": "Đọc và thử nghiệm theo dõi phương tiện."
+        }
+      ]
+    },
+    {
+      "id": "cho-hoc",
+      "slot": "east",
+      "key": "g",
+      "name": "Chợ Học",
+      "role": "Công cụ học tập",
+      "blurb": "Chợ nhỏ các công cụ giúp học và ôn thi.",
+      "style": {
+        "walls": [
+          "wallSage",
+          "paper",
+          "wallRose"
+        ],
+        "roofs": [
+          "mustard",
+          "terra"
+        ],
+        "annex": [
+          "stall",
+          "well",
+          "banner"
+        ]
+      },
+      "features": {
+        "lamps": true,
+        "centerpiece": "fountain",
+        "suburbs": 9
+      },
+      "items": [
+        {
+          "name": "Ra đề AIT2004",
+          "url": "/du-an/ra-de-ait2004",
+          "kind": "school",
+          "desc": "Ra đề và ngân hàng câu hỏi môn Cơ sở Trí tuệ nhân tạo."
+        },
+        {
+          "name": "Ghi chú Obsidian",
+          "url": "/du-an/obsidian-notes",
+          "kind": "scriptorium",
+          "desc": "Ghi chú học tập trong Obsidian."
+        }
+      ]
+    },
+    {
+      "id": "doi-nghien-cuu",
+      "slot": "highland",
+      "key": "d",
+      "name": "Đồi Nghiên Cứu",
+      "role": "Nghiên cứu",
+      "blurb": "Cao nguyên yên tĩnh cho các bài đọc và nghiên cứu.",
+      "style": {
+        "walls": [
+          "paper",
+          "snow"
+        ],
+        "roofs": [
+          "pine",
+          "roofSlate"
+        ],
+        "annex": [
+          "tower",
+          "tree",
+          "lantern"
+        ]
+      },
+      "features": {
+        "lamps": true,
+        "centerpiece": "none",
+        "suburbs": 6
+      },
+      "items": [
+        {
+          "name": "Dự đoán epitope tế bào B",
+          "url": "/du-an/bcell-epitope",
+          "kind": "stupa",
+          "desc": "Dịch và đọc AbEpiTope-1.0 về dự đoán epitope kháng thể."
+        },
+        {
+          "name": "Thị giác máy tính",
+          "url": "/du-an/computer-vision",
+          "kind": "dome",
+          "desc": "Đọc Foundations of Computer Vision và thử LeNet."
+        }
+      ]
+    }
+  ]
+}

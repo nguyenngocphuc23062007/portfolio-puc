@@ -1,0 +1,191 @@
+/* Giao diện giấy thủ công cho bản đồ project của Puc. Đè lên map.css. Quy tắc thiết kế: .claude/skills/papercraft-ui/SKILL.md
+   - Chất liệu: giấy trắng (người dùng muốn giao diện trắng), bìa kraft lót phía sau, băng dính giấy mù tạt, mực xanh thông.
+     Màu giấy và mực đổi theo giờ trong daylight.js (biến --ui-*); file này chỉ thêm kraft, màu cáo và hình dạng.
+   - Chữ: tiêu đề là chữ giấy cắt (Paytone One, mỗi chữ cái một mẩu giấy, xem papercut-letters.js); Be Vietnam Pro cho mọi chữ khác.
+     Không chữ nghiêng có chân, không chữ đơn cách, không nhãn viết hoa giãn chữ, không nối bằng dấu chấm giữa.
+   - Mép giấy cắt sắc bằng clip-path (góc vát, cạnh lệch tới 1.5 px); bóng đặt ở khung ngoài để không bị cắt.
+   - Chỉ một điểm nhấn: tấm thông tin dán băng dính lên tấm kraft. Các khung khác là một tờ giấy, không trang trí thêm. */
+:root {
+  --font-sans: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-map: 'Paytone One', 'Be Vietnam Pro', sans-serif;
+  --font-mono: 'Be Vietnam Pro', system-ui, sans-serif;
+  --pc-kraft: color-mix(in srgb, var(--ui-card) 45%, #a47a49);
+  --pc-fox: #d9661c;
+  --coral: #d9661c;
+  --coral-deep: #8f3a10;
+  --pc-fibre: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .15  0 0 0 0 .2  0 0 0 0 .12  0 0 0 .08 0'/></filter><rect width='100%' height='100%' filter='url(%23f)'/></svg>");
+  --pc-edge: color-mix(in srgb, var(--ui-ink) 45%, transparent);
+  --pc-lift: drop-shadow(0 1px 0 color-mix(in srgb, var(--ui-ink) 28%, transparent)) drop-shadow(0 4px 6px var(--ui-shadow));
+  --pc-cut: polygon(0 4px, 4px 0, 31% 1px, 58% 0, 83% 1.5px, calc(100% - 5px) 0, 100% 5px, calc(100% - 1px) 38%, 100% 71%, calc(100% - 1.5px) calc(100% - 4px),
+    calc(100% - 4px) 100%, 66% calc(100% - 1px), 37% 100%, 12% calc(100% - 1.5px), 3px 100%, 0 calc(100% - 3px), 1.5px 62%, 0 30%);
+  --pc-cut-2: polygon(1px 3px, 5px 0, 46% 1.5px, calc(100% - 3px) 0, 100% 4px, calc(100% - 1px) 55%, 100% calc(100% - 5px), calc(100% - 5px) 100%,
+    52% calc(100% - 1.5px), 4px 100%, 0 calc(100% - 4px), 1px 45%);
+  --pc-tape-ends: polygon(0 0, 5% 14%, 0 28%, 5% 42%, 0 56%, 5% 70%, 0 84%, 5% 100%, 95% 100%, 100% 86%, 95% 72%, 100% 58%, 95% 44%, 100% 30%, 95% 16%, 100% 0);
+}
+body { font-feature-settings: 'tnum' 0; }
+
+/* ---------- tờ giấy cho mọi khung ---------- */
+.brand, .crumb, .tools, .compass, .foot, .info, .keys, .lang-menu, .city-menu {
+  background: transparent !important; border-color: transparent !important; box-shadow: none !important; border-radius: 0 !important;
+  backdrop-filter: none !important; -webkit-backdrop-filter: none !important; isolation: isolate; filter: var(--pc-lift);
+}
+.brand::before, .crumb::before, .tools::before, .foot::before, .info::before, .keys::before, .lang-menu::before, .city-menu::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; clip-path: var(--pc-cut);
+  background: var(--pc-fibre), var(--ui-card); box-shadow: inset 0 0 0 1px var(--pc-edge);
+}
+/* tấm thông tin và bảng phím tắt: dán lên một tấm bìa kraft lệch */
+.info::after, .keys::after {
+  content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none; clip-path: var(--pc-cut-2);
+  background: var(--pc-fibre), var(--pc-kraft); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ui-ink) 30%, transparent);
+  transform: translate(-10px, 9px) rotate(-1.6deg);
+}
+.keys::after { transform: translate(7px, 8px) rotate(1.1deg); }
+/* hai miếng băng dính chéo ở hai góc trên */
+.info-head { position: relative; }
+.info-head::before, .info-head::after {
+  content: ""; position: absolute; top: -12px; width: 62px; height: 20px; pointer-events: none; clip-path: var(--pc-tape-ends);
+  background: var(--pc-fibre), color-mix(in srgb, var(--ui-hot) 82%, transparent);
+}
+.info-head::before { left: -22px; transform: rotate(-32deg); }
+.info-head::after { right: -22px; transform: rotate(30deg); }
+.info.folded .info-head::before, .info.folded .info-head::after { display: none; }
+
+/* la bàn: đĩa giấy */
+.compass { border-radius: 50% !important; }
+.compass::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 50%; background: var(--pc-fibre), var(--ui-card); box-shadow: inset 0 0 0 1px var(--pc-edge); }
+
+/* ---------- chữ ---------- */
+.brand .site { font-family: var(--font-map); font-style: normal; font-weight: 800; font-size: 21px; letter-spacing: -.01em; padding: 2px 12px 0; }
+.brand a:hover { background: none; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.crumb, .tools, .foot, .fold, .hint, .keys p { font-family: var(--font-sans); }
+.crumb { font-size: 13px; padding: 4px 10px; gap: 8px; }
+.crumb .here { font-weight: 600; padding: 2px 0; }
+.crumb .count { color: var(--ui-faint); font-size: 12.5px; }
+.crumb .sep { color: var(--ui-faint); }
+.tools { font-size: 13px; padding: 4px 6px; }
+/* đồng hồ: khung thẳng cột với khung "puc" (bản gốc chừa 70px cho la bàn, la bàn đã bỏ), chấm mặt trời và chữ căn giữa theo chiều dọc */
+.foot { left: calc(14px + env(safe-area-inset-left, 0px)); font-size: 12px; line-height: 1; padding: 8px 11px; font-variant-numeric: tabular-nums; }
+.clock { display: inline-flex; align-items: center; gap: 6px; }
+.clock::before { margin: 0; flex: none; border-radius: 50%; border-color: var(--pc-edge); }
+@media (max-width: 560px) { .foot { left: calc(10px + env(safe-area-inset-left, 0px)); } }
+#info-eyebrow { visibility: hidden; }
+.panel h2 { font-family: var(--font-map); font-style: normal; font-weight: 700; font-size: 30px; line-height: 1; letter-spacing: -.01em; text-wrap: balance; padding-top: 2px; }
+.panel h2 small { font-family: var(--font-sans); font-weight: 500; font-size: 13.5px; margin-top: 6px; }
+.panel p { font-size: 14.5px; line-height: 1.55; max-width: 34em; }
+.place { font-family: var(--font-sans); font-style: normal; font-weight: 500; font-size: 13px; letter-spacing: .12em; }
+.place small { font-family: var(--font-sans); letter-spacing: .1em; }
+.keys h2 { font-family: var(--font-map); font-style: normal; font-weight: 700; }
+.keys kbd, .hint kbd { font-family: var(--font-sans); font-size: 11.5px; border-radius: 2px; background: var(--pc-fibre), var(--ui-card); border-color: var(--pc-edge); }
+
+/* ---------- nút ---------- */
+.crumb button, .tools button, .list button, .lang-menu button, .city-menu button { position: relative; isolation: isolate; border-radius: 0 !important; }
+.crumb button:hover, .tools button:hover, .list button:hover, .lang-menu button:hover, .city-menu button:hover {
+  background: color-mix(in srgb, var(--ui-line) 70%, transparent) !important;
+}
+/* đang bật hoặc đang chọn: một miếng băng dính dán ngang dưới chữ */
+.tools button[aria-pressed="true"], .list button[aria-current="true"], .lang-menu button[aria-checked="true"], .city-menu button[aria-current="location"] { background: none !important; }
+.tools button[aria-pressed="true"]::before, .list button[aria-current="true"]::before, .lang-menu button[aria-checked="true"]::before, .city-menu button[aria-current="location"]::before {
+  content: ""; position: absolute; inset: 2px -3px; z-index: -1; pointer-events: none; clip-path: var(--pc-tape-ends);
+  background: var(--pc-fibre), color-mix(in srgb, var(--ui-hot) 85%, transparent); transform: rotate(-1deg);
+}
+.fold { font-size: 12px; color: var(--ui-soft); border: 0; border-radius: 0; padding: 2px 4px; }
+.fold:hover { color: var(--ui-ink); text-decoration: underline; text-underline-offset: 3px; }
+.tools .sep { background: var(--ui-line); }
+
+/* ---------- danh sách thị trấn và project ---------- */
+.list { border-top: 1px solid var(--ui-line); gap: 0; }
+.list button { padding: 8px 8px; }
+.list .nm { font-weight: 600; font-size: 15px; }
+.list .nm i { font-family: var(--font-map); font-style: normal; font-weight: 700; font-size: 18px; }
+.list .nm em { font-size: 13px; color: var(--ui-soft); }
+.list .meta { font-family: var(--font-sans); font-size: 12px; color: var(--ui-faint); }
+.grid-ref, .d-tag b { display: none; }
+/* huy hiệu thị trấn: lá cờ đuôi én cắt giấy, màu mái của thị trấn */
+.emblem { width: 24px; height: 30px; border: 0; border-radius: 0; box-shadow: none; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+  background: var(--pc-fibre), var(--c); font-family: var(--font-map); font-style: normal; font-weight: 800; font-size: 15px; padding-bottom: 5px; }
+/* ô màu toà nhà: mẩu giấy vuông dán hơi lệch */
+.swatch { width: 13px; height: 13px; border: 0; transform: rotate(-7deg); box-shadow: inset 0 0 0 1px var(--pc-edge); background: var(--pc-fibre), var(--c); margin: 0 6px 0 4px; }
+/* nút Xem project: mẩu giấy màu cam cáo */
+.go { font-family: var(--font-sans); font-weight: 600; font-size: 12.5px; color: var(--ui-ink); border: 0; border-radius: 0; padding: 5px 10px;
+  clip-path: var(--pc-cut-2); background: var(--pc-fibre), var(--pc-fox); box-shadow: inset 0 0 0 1px var(--pc-edge); color: #22180f; }
+.info .hint { border-top: 1px solid var(--ui-line); font-family: var(--font-sans); font-size: 12px; line-height: 1.5; color: var(--ui-soft); }
+.info .panel { padding-top: 4px; }
+
+/* ---------- nhãn trên bản đồ: thẻ giấy, tờ kraft lót bằng box-shadow (nhãn di chuyển mỗi khung hình nên không dùng filter) ---------- */
+.c-tag { border-radius: 1px; border-color: var(--pc-edge); background: var(--pc-fibre), var(--ui-card); padding: 3px 11px 4px;
+  box-shadow: 4px 4px 0 0 var(--pc-kraft), 4px 4px 0 1px color-mix(in srgb, var(--ui-ink) 25%, transparent), 0 6px 10px var(--ui-shadow); }
+.c-tag .en { font-family: var(--font-map); font-style: normal; font-weight: 700; font-size: 19px; letter-spacing: 0; line-height: 1.05; }
+.c-tag .zh { font-family: var(--font-sans); font-size: 11px; color: var(--ui-soft); }
+.c-tag:hover, .c-tag.hot { background: var(--pc-fibre), var(--ui-hot); }
+.d-tag { font-family: var(--font-sans); font-size: 12px; font-weight: 500; border-radius: 1px; border-color: var(--pc-edge);
+  background: var(--pc-fibre), var(--ui-card); box-shadow: 2px 2px 0 0 var(--pc-kraft), 0 3px 5px var(--ui-shadow); }
+.d-tag.sel { background: var(--pc-fibre), var(--pc-fox); color: #22180f; }
+
+/* ---------- màn chờ, bong bóng trên máy nhỏ ---------- */
+.loader { background: var(--pc-fibre), var(--ui-card); }
+.ld-title { font-family: var(--font-map); font-style: normal; font-weight: 700; }
+.ld-step { font-family: var(--font-sans); }
+.ld-bar { border-radius: 0; height: 4px; }
+.ld-bar i { background: var(--pc-fox); }
+.bubble-copy strong { font-family: var(--font-map); font-weight: 700; font-size: 18px; }
+.bubble-open, .bubble-close { border-radius: 0; border-color: var(--pc-edge); clip-path: var(--pc-cut-2); }
+.bubble-open { background: var(--pc-fibre), var(--pc-fox); color: #22180f; }
+.bubble-close { background: var(--pc-fibre), var(--ui-card); }
+
+/* ---------- chữ giấy cắt (papercut-letters.js tách tiêu đề thành từng chữ cái) ----------
+   Học từ: shadcn "Paper Cut Text" (chồng nhiều lớp chữ, lớp dưới nhạt dần về màu nền, nhích 0.03em mỗi lớp, một bóng mềm ôm cả khối)
+   và kiểu chữ dán cắt từng chữ (viền giấy trắng bằng -webkit-text-stroke + paint-order, mỗi chữ xoay lệch một chút). */
+.pc-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.pc-word { display: inline-block; white-space: nowrap; }
+.pc-l { display: inline-block; transform: translateY(var(--y, 0)) rotate(var(--r, 0deg)); }
+.panel h2, .keys h2, .brand .site, .ld-title, .bubble-copy strong { font-family: var(--font-map); font-weight: 400; letter-spacing: .01em; }
+
+/* trên tờ giấy trắng: chữ cắt từ bìa xanh thông, dán chồng lên hai lớp bìa xô thơm và kraft */
+.panel h2 .pc-l, .keys h2 .pc-l, .ld-title .pc-l, .bubble-copy strong .pc-l {
+  color: var(--ui-ink);
+  text-shadow: 0 .035em 0 color-mix(in srgb, var(--ui-ink) 45%, #b9c79a), 0 .07em 0 color-mix(in srgb, var(--ui-card) 35%, #b9a074),
+    0 .12em .1em var(--ui-shadow);
+}
+.panel h2 { font-size: 31px; line-height: 1.12; letter-spacing: .015em; padding-bottom: 2px; }
+.panel h2 small { margin-top: 8px; }
+/* Căn chữ "puc" giữa khung theo phần mực thật, không theo hộp dòng: Paytone One có phần trên dòng rất cao (1.095em)
+   nên chữ thường luôn rơi xuống dưới. Với line-height 1, tâm phần mực của "puc" (x-height .51em, đuôi chữ p .19em)
+   nằm thấp hơn tâm hộp .245em, nên nhấc cả từ lên đúng chừng đó. Đo bằng canvas measureText. */
+.brand .site { display: block; font-size: 21px; line-height: 1; padding: 4px 12px; }
+.brand .site .pc-word { position: relative; top: -.245em; }
+.brand .site .pc-l { color: var(--pc-fox); text-shadow: 0 .04em 0 #9a4313, 0 .09em .08em var(--ui-shadow); }
+
+/* tên thị trấn trên bản đồ: không còn khung, là chữ dán cắt rời đứng trên mặt đất, viền giấy trắng, màu mái của thị trấn */
+.c-tag { background: none !important; border: 0 !important; box-shadow: none !important; padding: 0 4px; gap: 3px; }
+.c-tag::after { display: none; }
+.c-tag .en { font-family: var(--font-map); font-weight: 400; font-size: 22px; letter-spacing: .02em; line-height: 1.1; }
+.c-tag .en .pc-l {
+  color: color-mix(in srgb, var(--c, var(--pc-fox)) 66%, #1b2419);
+  -webkit-text-stroke: .26em #fdfdfb; paint-order: stroke fill;
+  text-shadow: 0 1.5px 0 rgba(30, 38, 26, .45), 0 4px 6px rgba(20, 28, 16, .35);
+  transition: transform .18s;
+}
+.c-tag:hover .en .pc-l, .c-tag.hot .en .pc-l { transform: translateY(calc(var(--y, 0px) - 3px)) rotate(var(--r, 0deg)); }
+.c-tag .zh { font-size: 11px; font-weight: 500; color: var(--ui-ink); padding: 1px 7px 2px; background: var(--pc-fibre), var(--ui-card);
+  clip-path: var(--pc-cut-2); box-shadow: inset 0 0 0 1px var(--pc-edge); }
+.c-tag:hover .zh, .c-tag.hot .zh { background: var(--pc-fibre), var(--ui-hot); }
+
+@media (prefers-reduced-motion: reduce) { .c-tag .en .pc-l { transition: none; } }
+
+/* ---------- giao diện tối giản: chỉ thao tác bằng chuột và cuộn (người dùng yêu cầu) ----------
+   Bỏ thanh công cụ, đường dẫn vị trí, la bàn, dòng hướng dẫn và các chữ phụ trong tấm thông tin.
+   Cách đi lại nằm trong map-engine.js: bấm chỗ trống để lùi, cuộn ra xa để về toàn bản đồ, bấm chữ "puc" để về góc nhìn ban đầu. */
+.tools, .crumb, .compass, .map-controls, .info .hint { display: none !important; }
+.panel h2 small, .panel > p, .list .nm em, .list .meta, .bubble-copy p { display: none; }
+.panel { gap: 10px; }
+.list { border-top: 0; padding-top: 2px; }
+.list button { padding: 9px 8px; align-items: center; }
+.info .panel { padding-bottom: 16px; }
+.info-head { padding-top: 6px; }
+.brand .site { cursor: pointer; }
+
+/* ---------- hiệu năng ----------
+   Nhãn trên bản đồ được dời bằng transform mỗi khung hình; tách mỗi nhãn thành một lớp riêng để trình duyệt chỉ ghép lớp,
+   không vẽ lại chữ (chữ giấy cắt có viền và bóng nên vẽ lại khá tốn). */
+.labels > * { will-change: transform; }
+.labels { contain: layout style; }

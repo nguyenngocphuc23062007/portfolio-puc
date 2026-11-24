@@ -1,0 +1,226 @@
+{
+ "note": "Khung c\u1eaft th\u1eb3ng t\u1eeb \u1ea3nh g\u1ed1c, ch\u1ec9 b\u1ecf n\u1ec1n tr\u1eafng",
+ "anims": {
+  "idle": {
+   "n": 4,
+   "w": 196,
+   "h": 194,
+   "ground": 188,
+   "fps": 4,
+   "loop": true
+  },
+  "wag": {
+   "n": 4,
+   "w": 177,
+   "h": 161,
+   "ground": 156,
+   "fps": 6,
+   "loop": true
+  },
+  "lie": {
+   "n": 4,
+   "w": 255,
+   "h": 157,
+   "ground": 150,
+   "fps": 3,
+   "loop": true
+  },
+  "sleep": {
+   "n": 6,
+   "w": 215,
+   "h": 121,
+   "ground": 116,
+   "fps": 3,
+   "loop": true
+  },
+  "sleepy": {
+   "n": 4,
+   "w": 222,
+   "h": 126,
+   "ground": 121,
+   "fps": 4,
+   "loop": true
+  },
+  "dash": {
+   "n": 6,
+   "w": 202,
+   "h": 189,
+   "ground": 159,
+   "fps": 12,
+   "loop": true
+  },
+  "startle": {
+   "n": 3,
+   "w": 211,
+   "h": 179,
+   "ground": 164,
+   "fps": 9,
+   "loop": false
+  },
+  "crouch": {
+   "n": 2,
+   "w": 165,
+   "h": 186,
+   "ground": 172,
+   "fps": 8,
+   "loop": false
+  },
+  "leap": {
+   "n": 3,
+   "w": 175,
+   "h": 186,
+   "ground": 172,
+   "fps": 9,
+   "loop": false
+  },
+  "land": {
+   "n": 1,
+   "w": 187,
+   "h": 186,
+   "ground": 172,
+   "fps": 6,
+   "loop": false
+  },
+  "happy": {
+   "n": 4,
+   "w": 193,
+   "h": 189,
+   "ground": 183,
+   "fps": 6,
+   "loop": true
+  },
+  "liedown": {
+   "n": 3,
+   "w": 214,
+   "h": 147,
+   "ground": 142,
+   "fps": 5,
+   "loop": false
+  },
+  "wake": {
+   "n": 6,
+   "w": 164,
+   "h": 156,
+   "ground": 148,
+   "fps": 6,
+   "loop": false
+  },
+  "wiggle": {
+   "n": 6,
+   "w": 175,
+   "h": 149,
+   "ground": 123,
+   "fps": 8,
+   "loop": true
+  },
+  "held": {
+   "n": 5,
+   "w": 133,
+   "h": 201,
+   "ground": 185,
+   "fps": 6,
+   "loop": true
+  },
+  "dizzy": {
+   "n": 4,
+   "w": 197,
+   "h": 127,
+   "ground": 119,
+   "fps": 5,
+   "loop": true
+  },
+  "peek": {
+   "n": 4,
+   "w": 155,
+   "h": 109,
+   "ground": 106,
+   "fps": 5,
+   "loop": false
+  },
+  "lookup": {
+   "n": 4,
+   "w": 168,
+   "h": 171,
+   "ground": 167,
+   "fps": 4,
+   "loop": false
+  },
+  "tilt": {
+   "n": 4,
+   "w": 191,
+   "h": 189,
+   "ground": 183,
+   "fps": 4,
+   "loop": false
+  },
+  "dig": {
+   "n": 5,
+   "w": 181,
+   "h": 164,
+   "ground": 146,
+   "fps": 9,
+   "loop": true
+  },
+  "eat": {
+   "n": 4,
+   "w": 192,
+   "h": 178,
+   "ground": 173,
+   "fps": 5,
+   "loop": true
+  },
+  "sniff": {
+   "n": 4,
+   "w": 285,
+   "h": 147,
+   "ground": 138,
+   "fps": 5,
+   "loop": true
+  },
+  "sad": {
+   "n": 3,
+   "w": 172,
+   "h": 181,
+   "ground": 175,
+   "fps": 3,
+   "loop": false
+  }
+ },
+ "fx": {
+  "zzz": {
+   "n": 4,
+   "w": 147,
+   "h": 103
+  },
+  "heart": {
+   "n": 4,
+   "w": 121,
+   "h": 103
+  },
+  "bang": {
+   "n": 3,
+   "w": 113,
+   "h": 152
+  },
+  "dust": {
+   "n": 5,
+   "w": 173,
+   "h": 98
+  },
+  "shake": {
+   "n": 3,
+   "w": 78,
+   "h": 98
+  },
+  "stars": {
+   "n": 4,
+   "w": 157,
+   "h": 121
+  },
+  "shadow": {
+   "n": 3,
+   "w": 187,
+   "h": 48
+  }
+ }
+}

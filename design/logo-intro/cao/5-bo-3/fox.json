@@ -1,0 +1,201 @@
+{
+ "note": "Cắt thẳng từ ảnh 35-50, chỉ bỏ nền; px = cỡ một ô pixel đo theo nét viền",
+ "anims": {
+  "chay": {
+   "n": 6,
+   "w": 303,
+   "h": 244,
+   "ground": 234,
+   "px": 10,
+   "src": "35.webp"
+  },
+  "lay-da": {
+   "n": 6,
+   "w": 305,
+   "h": 264,
+   "ground": 257,
+   "px": 10,
+   "src": "36.webp"
+  },
+  "bat": {
+   "n": 3,
+   "w": 559,
+   "h": 484,
+   "ground": 472,
+   "px": 19,
+   "src": "37.webp"
+  },
+  "bay-3": {
+   "n": 3,
+   "w": 547,
+   "h": 553,
+   "ground": 483,
+   "px": 19,
+   "src": "38.webp"
+  },
+  "ngoi-tho": {
+   "n": 8,
+   "w": 214,
+   "h": 255,
+   "ground": 254,
+   "px": 10,
+   "src": "39.webp"
+  },
+  "nhay-mat": {
+   "n": 6,
+   "w": 293,
+   "h": 322,
+   "ground": 321,
+   "px": 14,
+   "src": "40.webp"
+  },
+  "vay-duoi": {
+   "n": 10,
+   "w": 172,
+   "h": 188,
+   "ground": 187,
+   "px": 8,
+   "src": "41.webp"
+  },
+  "ngoi-xuong": {
+   "n": 5,
+   "w": 372,
+   "h": 385,
+   "ground": 375,
+   "px": 15,
+   "src": "42.webp"
+  },
+  "quay-dau": {
+   "n": 6,
+   "w": 298,
+   "h": 300,
+   "ground": 297,
+   "px": 12,
+   "src": "43.webp"
+  },
+  "dap-dat": {
+   "n": 6,
+   "w": 305,
+   "h": 310,
+   "ground": 308,
+   "px": 12,
+   "src": "44.webp"
+  },
+  "bung-ra": {
+   "n": 8,
+   "w": 469,
+   "h": 297,
+   "ground": 291,
+   "px": 10,
+   "src": "45.webp"
+  },
+  "tai-luot": {
+   "n": 6,
+   "w": 281,
+   "h": 143,
+   "ground": 140,
+   "px": 11,
+   "src": "46.webp"
+  },
+  "thut": {
+   "n": 4,
+   "w": 438,
+   "h": 345,
+   "ground": 335,
+   "px": 15,
+   "src": "47.webp"
+  },
+  "nhin-quanh": {
+   "n": 9,
+   "w": 380,
+   "h": 192,
+   "ground": 190,
+   "px": 10,
+   "src": "48.webp"
+  },
+  "troi-dau": {
+   "n": 6,
+   "w": 279,
+   "h": 208,
+   "ground": 202,
+   "px": 11,
+   "src": "49.webp"
+  },
+  "lao-xuong": {
+   "n": 10,
+   "w": 294,
+   "h": 302,
+   "ground": 297,
+   "px": 10,
+   "src": "50.webp"
+  },
+  "bung-ra-moi": {
+   "n": 5,
+   "w": 372,
+   "h": 278,
+   "ground": 273,
+   "px": 11,
+   "src": "51.webp"
+  },
+  "bay": {
+   "n": 12,
+   "w": 354,
+   "h": 255,
+   "ground": 231,
+   "px": 11,
+   "src": "52.webp"
+  },
+  "giu-dat": {
+   "n": 6,
+   "w": 446,
+   "h": 266,
+   "ground": 265,
+   "px": 10,
+   "src": "55.webp"
+  }
+ },
+ "fx": {
+  "bui-chay": {
+   "n": 5,
+   "w": 106,
+   "h": 53,
+   "ground": 53
+  },
+  "bui-dap": {
+   "n": 7,
+   "w": 148,
+   "h": 81,
+   "ground": 81
+  },
+  "bui-bung": {
+   "n": 8,
+   "w": 126,
+   "h": 103,
+   "ground": 103
+  },
+  "dat-vang": {
+   "n": 6,
+   "w": 130,
+   "h": 81,
+   "ground": 81
+  },
+  "dat-roi": {
+   "n": 5,
+   "w": 70,
+   "h": 79,
+   "ground": 79
+  },
+  "vach-rung": {
+   "n": 4,
+   "w": 148,
+   "h": 52,
+   "ground": 52
+  },
+  "bong": {
+   "n": 6,
+   "w": 178,
+   "h": 29,
+   "ground": 29
+  }
+ }
+}

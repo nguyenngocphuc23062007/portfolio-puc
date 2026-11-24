@@ -1,0 +1,181 @@
+{
+ "frame": [
+  72,
+  46
+ ],
+ "ground": 42,
+ "anchor": 26,
+ "anims": {
+  "idle": {
+   "row": 0,
+   "n": 4,
+   "fps": 4,
+   "loop": 2
+  },
+  "lie": {
+   "row": 1,
+   "n": 4,
+   "fps": 4,
+   "loop": 2
+  },
+  "sleep": {
+   "row": 2,
+   "n": 5,
+   "fps": 3,
+   "loop": 2
+  },
+  "sleepy": {
+   "row": 3,
+   "n": 4,
+   "fps": 4,
+   "loop": 2
+  },
+  "dash": {
+   "row": 4,
+   "n": 5,
+   "fps": 11,
+   "loop": 1
+  },
+  "startle": {
+   "row": 5,
+   "n": 2,
+   "fps": 10,
+   "loop": 0
+  },
+  "crouch": {
+   "row": 6,
+   "n": 2,
+   "fps": 8,
+   "loop": 0
+  },
+  "leap": {
+   "row": 7,
+   "n": 3,
+   "fps": 9,
+   "loop": 0
+  },
+  "land": {
+   "row": 8,
+   "n": 4,
+   "fps": 9,
+   "loop": 0
+  },
+  "happy": {
+   "row": 9,
+   "n": 4,
+   "fps": 6,
+   "loop": 2
+  },
+  "liedown": {
+   "row": 10,
+   "n": 3,
+   "fps": 6,
+   "loop": 0
+  },
+  "wake": {
+   "row": 11,
+   "n": 5,
+   "fps": 7,
+   "loop": 0
+  },
+  "wiggle": {
+   "row": 12,
+   "n": 6,
+   "fps": 9,
+   "loop": 1
+  },
+  "held": {
+   "row": 13,
+   "n": 4,
+   "fps": 6,
+   "loop": 2
+  },
+  "dizzy": {
+   "row": 14,
+   "n": 4,
+   "fps": 6,
+   "loop": 1
+  },
+  "peek": {
+   "row": 15,
+   "n": 4,
+   "fps": 6,
+   "loop": 0
+  },
+  "lookup": {
+   "row": 16,
+   "n": 4,
+   "fps": 5,
+   "loop": 0
+  },
+  "tilt": {
+   "row": 17,
+   "n": 3,
+   "fps": 5,
+   "loop": 0
+  },
+  "curl": {
+   "row": 18,
+   "n": 4,
+   "fps": 3,
+   "loop": 2
+  },
+  "dig": {
+   "row": 19,
+   "n": 4,
+   "fps": 9,
+   "loop": 1
+  },
+  "eat": {
+   "row": 20,
+   "n": 4,
+   "fps": 6,
+   "loop": 1
+  },
+  "sniff": {
+   "row": 21,
+   "n": 4,
+   "fps": 6,
+   "loop": 1
+  },
+  "sad": {
+   "row": 22,
+   "n": 2,
+   "fps": 3,
+   "loop": 0
+  }
+ },
+ "fx": {
+  "size": 28,
+  "anims": {
+   "zzz": {
+    "row": 0,
+    "n": 3
+   },
+   "heart": {
+    "row": 1,
+    "n": 3
+   },
+   "bang": {
+    "row": 2,
+    "n": 2
+   },
+   "dust": {
+    "row": 3,
+    "n": 4
+   },
+   "shake": {
+    "row": 4,
+    "n": 2
+   },
+   "stars": {
+    "row": 5,
+    "n": 4
+   },
+   "shadow": {
+    "row": 6,
+    "n": 2
+   }
+  }
+ }
+}

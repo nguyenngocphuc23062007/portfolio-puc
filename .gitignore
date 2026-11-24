@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+# mã và ảnh tải về chỉ để tham khảo (295 MB, có giấy phép riêng), xem .claude/NOTICE.md
+references/
+# trang dựng ra, GitHub Actions tự dựng lại bằng city/build.py
+city/out/
+# cài đặt riêng của máy
+.claude/settings.local.json
+__pycache__/
+*.pyc

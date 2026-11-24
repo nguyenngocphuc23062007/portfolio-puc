@@ -1,0 +1,180 @@
+{
+ "frame": [
+  50,
+  46
+ ],
+ "ground": 42,
+ "anims": {
+  "idle": {
+   "row": 0,
+   "n": 4,
+   "fps": 3,
+   "loop": true
+  },
+  "lie": {
+   "row": 1,
+   "n": 4,
+   "fps": 3,
+   "loop": true
+  },
+  "sleep": {
+   "row": 2,
+   "n": 5,
+   "fps": 2,
+   "loop": true
+  },
+  "sleepy": {
+   "row": 3,
+   "n": 4,
+   "fps": 3,
+   "loop": true
+  },
+  "dash": {
+   "row": 4,
+   "n": 5,
+   "fps": 10,
+   "loop": true
+  },
+  "startle": {
+   "row": 5,
+   "n": 2,
+   "fps": 8,
+   "loop": false
+  },
+  "crouch": {
+   "row": 6,
+   "n": 2,
+   "fps": 6,
+   "loop": false
+  },
+  "leap": {
+   "row": 7,
+   "n": 3,
+   "fps": 8,
+   "loop": false
+  },
+  "land": {
+   "row": 8,
+   "n": 4,
+   "fps": 8,
+   "loop": false
+  },
+  "happy": {
+   "row": 9,
+   "n": 4,
+   "fps": 6,
+   "loop": true
+  },
+  "liedown": {
+   "row": 10,
+   "n": 3,
+   "fps": 5,
+   "loop": false
+  },
+  "wake": {
+   "row": 11,
+   "n": 5,
+   "fps": 6,
+   "loop": false
+  },
+  "wiggle": {
+   "row": 12,
+   "n": 6,
+   "fps": 8,
+   "loop": true
+  },
+  "held": {
+   "row": 13,
+   "n": 4,
+   "fps": 5,
+   "loop": true
+  },
+  "dizzy": {
+   "row": 14,
+   "n": 4,
+   "fps": 5,
+   "loop": true
+  },
+  "peek": {
+   "row": 15,
+   "n": 4,
+   "fps": 5,
+   "loop": false
+  },
+  "lookup": {
+   "row": 16,
+   "n": 4,
+   "fps": 4,
+   "loop": false
+  },
+  "tilt": {
+   "row": 17,
+   "n": 3,
+   "fps": 4,
+   "loop": false
+  },
+  "curl": {
+   "row": 18,
+   "n": 4,
+   "fps": 2,
+   "loop": true
+  },
+  "dig": {
+   "row": 19,
+   "n": 4,
+   "fps": 8,
+   "loop": true
+  },
+  "eat": {
+   "row": 20,
+   "n": 4,
+   "fps": 5,
+   "loop": true
+  },
+  "sniff": {
+   "row": 21,
+   "n": 4,
+   "fps": 5,
+   "loop": true
+  },
+  "sad": {
+   "row": 22,
+   "n": 2,
+   "fps": 3,
+   "loop": false
+  }
+ },
+ "fx": {
+  "size": 28,
+  "anims": {
+   "zzz": {
+    "row": 0,
+    "n": 3
+   },
+   "heart": {
+    "row": 1,
+    "n": 3
+   },
+   "bang": {
+    "row": 2,
+    "n": 2
+   },
+   "dust": {
+    "row": 3,
+    "n": 4
+   },
+   "shake": {
+    "row": 4,
+    "n": 2
+   },
+   "stars": {
+    "row": 5,
+    "n": 4
+   },
+   "shadow": {
+    "row": 6,
+    "n": 2
+   }
+  }
+ }
+}
