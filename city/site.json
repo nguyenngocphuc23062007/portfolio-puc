@@ -153,10 +153,10 @@
       },
       "items": [
         {
-          "name": "Portfolio giấy",
-          "url": "/du-an/portfolio",
+          "name": "Portfolio",
+          "url": "https://github.com/nguyenngocphuc23062007/portfolio-puc",
           "kind": "hobbit",
-          "desc": "Chính trang này: bản đồ giấy gấp và rừng nỉ."
+          "desc": "Chính trang này: bản đồ giấy gấp và rừng nỉ. Mã nguồn trên GitHub."
         },
         {
           "name": "Cáo pixel",
