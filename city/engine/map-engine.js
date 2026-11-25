@@ -1186,9 +1186,28 @@ for (const c of CITIES) {
       cap.position.set(end.x, Gy + .025 + i * .0015, end.z); cap.receiveShadow = true; grp.add(cap); pave.push(cap);
     }
     const wp = s.pts.map(p => toWorld(p.x, Gy + .03, p.z)); streetPaths.push(wp); walkPaths.push(wp);
-    if (c.lamps && i % 2 === 0) { const p = s.pts[5], q = s.pts[6], n = V(-(q.z - p.z), 0, q.x - p.x).normalize().multiplyScalar(s.w / 2 + .1);
-      const pole = new THREE.Mesh(new THREE.CylinderGeometry(.025, .03, .7, 5), M.ink); pole.position.set(p.x + n.x, Gy + .35, p.z + n.z); grp.add(pole);
-      const lamp = new THREE.Mesh(new THREE.OctahedronGeometry(.08, 0), M.lamp); lamp.position.set(p.x + n.x, Gy + .76, p.z + n.z); grp.add(lamp); halo(grp, p.x + n.x, Gy + .76, p.z + n.z, .8); } });
+  });
+  // đèn đường: đứng ngoài quảng trường, cách đều dọc phố, xen kẽ hai bên, không đứng trên phố khác, sát nhà hay sát đèn khác
+  // (trước đây mỗi đèn đặt ở điểm thứ 5 của phố; phố tới nhà ngắn nên đèn rơi vào giữa quảng trường và chụm thành đám)
+  if (c.lamps) {
+    const lamps = [], slots = c.slots.slice(0, c.nBuild).map(([x, z]) => V(x, 0, z));
+    const offStreet = (x, z) => streets.every(t => t.pts.every(p => Math.hypot(p.x - x, p.z - z) > t.w / 2 + .08));
+    streets.forEach((s, i) => {
+      let run = 0, side = hash(i * 13 + 5, Math.round(c.cx * 10)) < .5 ? 1 : -1, next = 1.5 + hash(i, 31) * .4;   // quãng phố tính từ tâm quảng trường
+      for (let k = 1; k < s.pts.length - 1; k++) {
+        const p = s.pts[k], q = s.pts[k + 1]; run += p.distanceTo(s.pts[k - 1]);
+        if (run < next) continue;
+        const n = V(-(q.z - p.z), 0, q.x - p.x).normalize().multiplyScalar((s.w / 2 + .14) * side), x = p.x + n.x, z = p.z + n.z;
+        if (Math.hypot(x, z) > 1.45 && blobSd(c, x + c.cx, z + c.cz) < -.15 && offStreet(x, z) && slots.every(b => Math.hypot(b.x - x, b.z - z) > .7)
+          && lamps.every(l => Math.hypot(l.x - x, l.z - z) > 1.1)) { lamps.push(V(x, 0, z)); side = -side; next = run + 1.3; }
+        else next = run + .15;
+      }
+    });
+    for (const l of lamps) {
+      const pole = new THREE.Mesh(new THREE.CylinderGeometry(.025, .03, .7, 5), M.ink); pole.position.set(l.x, Gy + .35, l.z); grp.add(pole);
+      const lamp = new THREE.Mesh(new THREE.OctahedronGeometry(.08, 0), M.lamp); lamp.position.set(l.x, Gy + .76, l.z); grp.add(lamp); halo(grp, l.x, Gy + .76, l.z, .8);
+    }
+  }
   // town wall (Minas Tirith) or hedge (Bree) along the irregular outline, open where streets leave
   if (c.walls || c.hedge) {
     const N = 46, P = []; for (let i = 0; i <= N; i++) { const [x, z] = blobPt(c, i / N * Math.PI * 2, .98); P.push(V(x, 0, z)); }
